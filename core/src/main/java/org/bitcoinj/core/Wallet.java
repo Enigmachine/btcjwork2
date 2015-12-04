@@ -269,7 +269,7 @@ public class Wallet extends BaseTaggableObject
         this.context = context;
         this.params = context.getParams();
         this.keyChainGroup = checkNotNull(keyChainGroup);
-        if (params == UnitTestParams.get())
+        if (params.getId() == NetworkParameters.ID_UNITTESTNET)
             this.keyChainGroup.setLookaheadSize(5);  // Cut down excess computation for unit tests.
         // If this keyChainGroup was created fresh just now (new wallet), make HD so a backup can be made immediately
         // without having to call current/freshReceiveKey. If there are already keys in the chain of any kind then
